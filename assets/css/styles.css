@@ -5,27 +5,29 @@
    ===================================================================== */
 
 :root {
-  /* Core palette — CLEAN black + white + gold (no warm/muddy tones) */
-  --black:        #050505;   /* Near-pure NEUTRAL black — base background */
-  --gold:         #D4AF37;   /* Luxury Gold metallic — primary accent */
-  --champagne:    #F1D18A;   /* Champagne Gold — light accent */
-  --glow:         #FFD76A;   /* Accent Glow Gold — highlights */
+  /* Core palette — CHARLI'S EXACT AIME GOLD on pure/near black.
+     From AIME_Global_Instructions.md. Clean black + white + gold.
+     NO #D4AF37, NO champagne, NO brown-gold (#9A6A27 retired). */
+  --black:        #000000;   /* Pure Black — base background */
+  --gold:         #DAA643;   /* Primary Gold (AIME) — primary accent */
+  --champagne:    #FFD963;   /* Gold Highlight (alias kept for accents) */
+  --glow:         #FFD963;   /* Gold Highlight — highlights */
+  --deep:         #CA9438;   /* Deep Gold */
 
-  /* Supporting tones — NEUTRAL near-blacks (no brown tint) + CLEAN WHITE text */
-  --near-black:   #0A0A0A;
-  --panel:        #0E0E0E;
-  --panel-2:      #141414;
-  --hairline:     rgba(212, 175, 55, 0.22);
-  --hairline-2:   rgba(212, 175, 55, 0.40);
+  /* Supporting tones — NEUTRAL near-black (no brown tint) + CLEAN WHITE text */
+  --near-black:   #0D0B0F;   /* Near Black (AIME) */
+  --panel:        #0D0B0F;
+  --panel-2:      #141118;
+  --hairline:     rgba(218, 166, 67, 0.22);
+  --hairline-2:   rgba(218, 166, 67, 0.40);
   --text:         #F5F5F5;   /* clean off-white — NOT beige/tan */
   --text-muted:   #B4B4B4;   /* neutral gray */
   --text-dim:     #7A7A7A;   /* neutral dim gray */
 
-  /* Effects — gold gradients stay pure gold; soft wash is pure gold at low alpha
-     (champagne/beige washes over black were the source of the muddy brown) */
-  --gold-grad:    linear-gradient(135deg, #F1D18A 0%, #D4AF37 45%, #B8932E 100%);
-  --gold-grad-soft: linear-gradient(135deg, rgba(212,175,55,0.10), rgba(212,175,55,0.02));
-  --glow-shadow:  0 0 40px rgba(212, 175, 55, 0.16);
+  /* Effects — gradient = highlight -> primary -> deep gold (no brown midtone) */
+  --gold-grad:    linear-gradient(135deg, #FFD963 0%, #DAA643 50%, #CA9438 100%);
+  --gold-grad-soft: linear-gradient(135deg, rgba(218,166,67,0.10), rgba(218,166,67,0.02));
+  --glow-shadow:  0 0 40px rgba(218, 166, 67, 0.16);
   --card-shadow:  0 18px 50px rgba(0, 0, 0, 0.6);
 
   --serif: 'Playfair Display', Georgia, serif;
@@ -58,8 +60,8 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(640px 400px at 85% -10%, rgba(212,175,55,0.06), transparent 62%),
-    radial-gradient(720px 520px at 50% 120%, rgba(212,175,55,0.04), transparent 64%);
+    radial-gradient(640px 400px at 85% -10%, rgba(218,166,67,0.06), transparent 62%),
+    radial-gradient(720px 520px at 50% 120%, rgba(218,166,67,0.04), transparent 64%);
 }
 
 img { max-width: 100%; display: block; }
@@ -117,7 +119,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.12; }
   width: 44px; height: 44px;
   border-radius: 50%;
   display: grid; place-items: center;
-  background: radial-gradient(circle at 35% 30%, #181818, #050505 75%);
+  background: radial-gradient(circle at 35% 30%, #181818, #000000 75%);
   border: 1.5px solid var(--gold);
   box-shadow: var(--glow-shadow);
   flex-shrink: 0;
@@ -424,7 +426,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.12; }
   border: 1px solid var(--hairline-2);
   margin-bottom: 18px;
   position: relative; z-index: 1;
-  box-shadow: inset 0 0 22px rgba(212,175,55,0.10);
+  box-shadow: inset 0 0 22px rgba(218,166,67,0.10);
 }
 .emp-avatar svg { width: 32px; height: 32px; stroke: var(--gold); fill: none; stroke-width: 1.6; }
 
@@ -640,7 +642,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.12; }
   font-size: 0.72rem;
   color: var(--champagne);
   border: 1px solid var(--hairline);
-  background: rgba(212,175,55,0.05);
+  background: rgba(218,166,67,0.05);
   padding: 6px 13px;
   border-radius: 100px;
 }
@@ -672,7 +674,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.12; }
   max-width: 70%;
   height: auto;
   margin: 0 auto 26px;
-  filter: drop-shadow(0 8px 40px rgba(212, 175, 55, 0.22));
+  filter: drop-shadow(0 8px 40px rgba(218, 166, 67, 0.22));
   animation: floatIn 0.9s cubic-bezier(.2,.7,.3,1) both;
 }
 @keyframes floatIn {
