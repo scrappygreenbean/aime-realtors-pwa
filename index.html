@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>The Realtor's AIME — Community OS</title>
-  <meta name="description" content="The Realtor's AIME community — a designed home where every channel is its own page. AI that finally works for YOU." />
+  <meta name="description" content="The Realtor's AIME member hub — a designed home where every channel is its own page. AI that ACTUALLY works for you." />
 
   <!-- PWA -->
   <link rel="manifest" href="manifest.webmanifest" />
-  <meta name="theme-color" content="#050505" />
+  <meta name="theme-color" content="#000000" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Realtor's AIME" />
@@ -26,10 +26,10 @@
   <header class="site-header">
     <div class="wrap">
       <a class="brand-lockup" href="index.html">
-        <span class="emblem"><span>A</span></span>
+        <img class="brand-logo" src="assets/img/aime-wordmark.png" alt="AIME" width="40" height="40" />
         <span class="brand-names">
           <span class="b1">The Realtor's AIME</span>
-          <span class="b2">Community OS</span>
+          <span class="b2">Member Hub</span>
         </span>
       </a>
       <nav class="header-nav">
@@ -42,22 +42,25 @@
     </div>
   </header>
 
-  <!-- ============ HERO ============ -->
+  <!-- ============ HERO (real cinematic brand image) ============ -->
   <section class="hero">
     <div class="wrap">
-      <img class="hero-wordmark" src="assets/img/aime-wordmark.png"
-           alt="AIME — Artificial Intelligence + Me" width="340" height="340" />
-      <div class="eyebrow">Artificial Intelligence + Me</div>
-      <h1>Your community,<span class="line2"><span class="gold-text">finally designed.</span></span></h1>
+      <img class="hero-logo" src="assets/img/logo-aime.png" alt="AIME — Artificial Intelligence + Me" />
+      <div class="eyebrow">The Realtor's AIME · Your Member Hub</div>
+      <h1>Your AI team,<span class="line2"><span class="gold-text">already on the clock.</span></span></h1>
       <p class="lede">
         No endless scroll. No ugly feed. Every channel opens to its own real page —
         built, branded, and made to actually use.
       </p>
-      <p class="sub">AI that finally works for YOU.</p>
+      <figure class="hero-showcase">
+        <img src="assets/img/hero-realtor.jpg"
+             alt="The Realtor's AIME — where human insight meets AI intelligence, elevating real estate" />
+      </figure>
+      <p class="sub">AI that <strong>ACTUALLY</strong> works for you.</p>
     </div>
   </section>
 
-  <!-- ============ CHANNELS ============ -->
+  <!-- ============ CHANNELS (image-driven rooms) ============ -->
   <section id="channels">
     <div class="wrap">
       <div class="section-head">
@@ -69,91 +72,79 @@
 
         <!-- LEADING: Start Here -->
         <a class="channel-tile is-live" href="ai-employees.html">
-          <div class="tile-icon">
-            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/><circle cx="4" cy="12" r="1.4" fill="var(--gold)" stroke="none"/></svg>
-          </div>
-          <div class="tile-body">
+          <div class="tile-media"><img src="assets/img/title-card.jpg" alt="The Realtor's AIME by Charlotte Walsh" loading="lazy" /></div>
+          <div class="tile-text">
             <h3>Start Here</h3>
-            <p>New to AIME? Get your first win in 15 minutes — meet your AI team and copy your first prompt. No fluff, no setup headache.</p>
-          </div>
-          <div class="tile-foot">
-            <span class="tile-link">Begin here <span class="arrow">&rarr;</span></span>
-            <span class="tile-badge live">Start</span>
+            <p>New to AIME? Get your first win in 15 minutes — meet your AI team and copy your first prompt. No setup headache.</p>
+            <div class="tile-foot">
+              <span class="tile-link">Begin here <span class="arrow">&rarr;</span></span>
+              <span class="tile-badge live">Start</span>
+            </div>
           </div>
         </a>
 
-        <!-- LIVE: AI Employees -->
+        <!-- AI Employees -->
         <a class="channel-tile is-live" href="ai-employees.html">
-          <div class="tile-icon">
-            <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 6.2a3 3 0 0 1 0 5.6"/><path d="M17.5 14.2A5.2 5.2 0 0 1 20.5 19"/></svg>
-          </div>
-          <div class="tile-body">
+          <div class="tile-media"><img src="assets/img/team.jpg" alt="Your AIME real-estate AI team" loading="lazy" /></div>
+          <div class="tile-text">
             <h3>AI Employees</h3>
             <p>Your hand-built AI team — listing copy, follow-ups, social, CMAs and more. Meet them, copy the prompt, get to work.</p>
-          </div>
-          <div class="tile-foot">
-            <span class="tile-link">Open channel <span class="arrow">&rarr;</span></span>
-            <span class="tile-badge live">Live</span>
+            <div class="tile-foot">
+              <span class="tile-link">Open channel <span class="arrow">&rarr;</span></span>
+              <span class="tile-badge live">Live</span>
+            </div>
           </div>
         </a>
 
-        <!-- LIVE: AI Headshots (external booth) -->
+        <!-- AI Headshots (external booth) -->
         <a class="channel-tile is-live" href="https://headshots.gotaime.com" target="_blank" rel="noopener">
-          <div class="tile-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="3.4"/><path d="M5 20a7 7 0 0 1 14 0"/><rect x="2.5" y="3" width="19" height="18" rx="3"/></svg>
-          </div>
-          <div class="tile-body">
+          <div class="tile-media"><img src="assets/img/headshot.jpg" alt="Your AI headshot, created with The Realtor's AIME" loading="lazy" /></div>
+          <div class="tile-text">
             <h3>AI Headshots</h3>
             <p>Studio-quality professional headshots in minutes — no photographer, no awkward studio. Upload, pick your look, done.</p>
-          </div>
-          <div class="tile-foot">
-            <span class="tile-link">Open booth <span class="arrow">&rarr;</span></span>
-            <span class="tile-badge live">Live</span>
+            <div class="tile-foot">
+              <span class="tile-link">Open booth <span class="arrow">&rarr;</span></span>
+              <span class="tile-badge live">Live</span>
+            </div>
           </div>
         </a>
 
         <!-- Resources -->
         <a class="channel-tile" href="#">
-          <div class="tile-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h6v18H6a2 2 0 0 1-2-2Z"/><path d="M20 5a2 2 0 0 0-2-2h-6v18h6a2 2 0 0 0 2-2Z"/></svg>
-          </div>
-          <div class="tile-body">
+          <div class="tile-media"><img src="assets/img/feature-portrait.jpg" alt="AIME real-estate framework" loading="lazy" /></div>
+          <div class="tile-text">
             <h3>Resources</h3>
             <p>Templates, scripts, checklists, and the playbooks behind every AI Employee — all in one tidy library.</p>
-          </div>
-          <div class="tile-foot">
-            <span class="tile-link">Coming soon</span>
-            <span class="tile-badge soon">Soon</span>
+            <div class="tile-foot">
+              <span class="tile-link">Coming soon</span>
+              <span class="tile-badge soon">Soon</span>
+            </div>
           </div>
         </a>
 
         <!-- Wins -->
         <a class="channel-tile" href="#">
-          <div class="tile-icon">
-            <svg viewBox="0 0 24 24"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0Z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>
-          </div>
-          <div class="tile-body">
+          <div class="tile-media"><img src="assets/img/wins-results.jpg" alt="Smarter insights, stronger results" loading="lazy" /></div>
+          <div class="tile-text">
             <h3>Wins</h3>
             <p>Real results from real agents. Closed deals, saved hours, listings that flew — share yours, steal theirs.</p>
-          </div>
-          <div class="tile-foot">
-            <span class="tile-link">Coming soon</span>
-            <span class="tile-badge soon">Soon</span>
+            <div class="tile-foot">
+              <span class="tile-link">Coming soon</span>
+              <span class="tile-badge soon">Soon</span>
+            </div>
           </div>
         </a>
 
         <!-- Office Hours -->
         <a class="channel-tile" href="#">
-          <div class="tile-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          </div>
-          <div class="tile-body">
+          <div class="tile-media"><img src="assets/img/wordmark-wide.png" alt="The Realtor's AIME" loading="lazy" /></div>
+          <div class="tile-text">
             <h3>Office Hours</h3>
             <p>Live walk-throughs and Q&amp;A. Bring a real deal, leave with a real plan. Built by a realtor, for realtors.</p>
-          </div>
-          <div class="tile-foot">
-            <span class="tile-link">Coming soon</span>
-            <span class="tile-badge soon">Soon</span>
+            <div class="tile-foot">
+              <span class="tile-link">Coming soon</span>
+              <span class="tile-badge soon">Soon</span>
+            </div>
           </div>
         </a>
 

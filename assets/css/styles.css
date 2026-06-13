@@ -800,3 +800,106 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.12; }
   .hero-wordmark::after { display: none; }
   .flair-on .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* =====================================================================
+   IMAGE-DRIVEN — real brand photography (replaces all icons/emoji)
+   ===================================================================== */
+
+/* Header brand mark = real AIME wordmark image */
+.brand-logo {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  box-shadow: var(--glow-shadow);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+/* Hero: real AIME logo + cinematic brand showcase image */
+.hero { padding: 60px 0 54px; }
+.hero-logo {
+  width: 240px; max-width: 66%;
+  height: auto; margin: 0 auto 20px;
+  filter: drop-shadow(0 6px 30px rgba(218,166,67,0.22));
+  animation: floatIn 0.9s cubic-bezier(.2,.7,.3,1) both;
+}
+.hero-showcase {
+  position: relative;
+  max-width: 940px;
+  margin: 34px auto 24px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--hairline-2);
+  box-shadow: var(--card-shadow), var(--glow-shadow);
+  animation: floatIn 1s cubic-bezier(.2,.7,.3,1) both;
+}
+.hero-showcase img { width: 100%; display: block; }
+.hero-showcase::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  box-shadow: inset 0 0 60px rgba(0,0,0,0.35);
+  border-radius: var(--radius);
+}
+.hero .sub { font-size: 1rem; color: var(--text-muted); }
+.hero .sub strong { color: var(--gold); font-weight: 700; letter-spacing: 0.02em; }
+
+/* Image-driven channel tiles: real photo on top, text below */
+.channel-tile { padding: 0; overflow: hidden; }
+.tile-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+.tile-media img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  display: block;
+  transition: transform 0.55s cubic-bezier(.2,.7,.3,1);
+}
+.channel-tile:hover .tile-media img { transform: scale(1.06); }
+.tile-media::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%);
+}
+.tile-text {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; flex: 1;
+  padding: 20px 24px 24px;
+}
+.tile-text h3 { font-family: var(--serif); font-weight: 700; font-size: 1.46rem; margin-bottom: 8px; color: var(--text); }
+.tile-text p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; flex: 1; }
+.tile-text .tile-foot { margin-top: 18px; }
+
+/* AI Employees gallery: real team banner */
+.team-banner {
+  max-width: 920px;
+  margin: 8px auto 6px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--hairline-2);
+  box-shadow: var(--card-shadow), var(--glow-shadow);
+}
+.team-banner img { width: 100%; display: block; }
+
+/* Branded gold monogram (replaces the generic SVG avatars) */
+.emp-mono, .detail-mono {
+  display: grid; place-items: center;
+  font-family: var(--serif); font-weight: 800;
+  color: #1a1407;
+  background: var(--gold-grad);
+  box-shadow: 0 6px 22px rgba(218,166,67,0.30), inset 0 1px 0 rgba(255,255,255,0.4);
+}
+.emp-mono {
+  width: 60px; height: 60px; border-radius: 16px;
+  font-size: 1.7rem; margin-bottom: 18px;
+  position: relative; z-index: 1;
+}
+.detail-mono {
+  width: 92px; height: 92px; border-radius: 22px;
+  font-size: 2.6rem; flex-shrink: 0;
+  box-shadow: var(--glow-shadow), inset 0 1px 0 rgba(255,255,255,0.45);
+}
+
+@media (max-width: 620px) {
+  .hero-logo { width: 180px; }
+  .tile-media { aspect-ratio: 16 / 9; }
+}

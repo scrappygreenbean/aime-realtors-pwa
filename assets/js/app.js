@@ -12,7 +12,7 @@ function renderGallery() {
   galleryEl.innerHTML = EMPLOYEES.map((e) => `
     <article class="emp-card" data-id="${e.id}" tabindex="0" role="button"
              aria-label="Meet ${e.name}, the ${e.role}">
-      <div class="emp-avatar">${ICONS[e.icon]}</div>
+      <div class="emp-mono">${e.name.charAt(0)}</div>
       <div class="emp-role">${e.role}</div>
       <h3>${e.name}</h3>
       <p class="emp-does">${e.does}</p>
@@ -37,7 +37,7 @@ function renderDetail(emp) {
     <a class="back-link" href="#"><span>&larr;</span> All AI Employees</a>
 
     <div class="detail-head">
-      <div class="detail-avatar">${ICONS[emp.icon]}</div>
+      <div class="detail-mono">${emp.name.charAt(0)}</div>
       <div class="detail-titles">
         <div class="emp-role">${emp.role}</div>
         <h1>${emp.name}</h1>
