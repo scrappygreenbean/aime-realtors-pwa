@@ -695,4 +695,108 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.12; }
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
 }
-.install-btn:hover { transform: translateY(-1px); box-shadow: var(--glow-shadow); }
+.install-btn:hover { transform: translateY(-1px); box-shadow: 0 0 26px rgba(218,166,67,0.40); }
+
+/* =====================================================================
+   FLAIR — premium real-website polish (gold on black, clean, no brown)
+   ===================================================================== */
+
+/* Metallic shimmer sweep across accent text + wordmark */
+.gold-text {
+  background-size: 220% auto;
+  animation: shimmerText 7s linear infinite;
+}
+@keyframes shimmerText { to { background-position: 220% center; } }
+
+.hero-wordmark {
+  position: relative;
+}
+.hero-wordmark::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,217,99,0.55) 48%, transparent 66%);
+  mix-blend-mode: screen;
+  transform: translateX(-120%);
+  animation: sheen 6.5s ease-in-out 1.2s infinite;
+  pointer-events: none;
+}
+@keyframes sheen {
+  0%, 18% { transform: translateX(-120%); }
+  34%, 100% { transform: translateX(120%); }
+}
+
+/* Richer hero: layered glow + faint brand grid texture behind the headline */
+.hero { isolation: isolate; }
+.hero::before {
+  content: '';
+  position: absolute; left: 0; right: 0; top: -8%;
+  height: 600px; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(640px 320px at 50% 20%, rgba(218,166,67,0.18), transparent 70%),
+    radial-gradient(960px 440px at 50% 2%, rgba(255,217,99,0.07), transparent 72%);
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0.55;
+  background-image:
+    linear-gradient(rgba(218,166,67,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(218,166,67,0.055) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(circle at 50% 28%, #000 0%, transparent 60%);
+          mask-image: radial-gradient(circle at 50% 28%, #000 0%, transparent 60%);
+}
+
+/* More dramatic hero type */
+.hero h1 { font-size: clamp(2.8rem, 7vw, 5.4rem); letter-spacing: -0.02em; }
+.page-hero h1 { font-size: clamp(2.5rem, 5.4vw, 4rem); letter-spacing: -0.02em; }
+
+/* Tiles & cards: gradient top accent on hover + deeper brand glow */
+.channel-tile, .emp-card { transition: transform 0.34s cubic-bezier(.2,.7,.3,1), border-color 0.3s, box-shadow 0.34s; }
+.channel-tile:hover, .emp-card:hover {
+  box-shadow: var(--card-shadow), 0 0 36px rgba(218,166,67,0.20);
+}
+.channel-tile:not(.is-live)::after,
+.emp-card::after { z-index: 0; }
+.channel-tile:not(.is-live) { position: relative; }
+.channel-tile:not(.is-live)::before,
+.emp-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--gold-grad);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s cubic-bezier(.2,.7,.3,1);
+  z-index: 2;
+}
+.channel-tile:not(.is-live):hover::before,
+.emp-card:hover::before { transform: scaleX(1); }
+
+/* Glowing brand buttons */
+.header-cta { transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.2s; }
+.header-cta:hover { box-shadow: 0 0 28px rgba(218,166,67,0.40); transform: translateY(-1px); }
+.copy-button:hover { box-shadow: 0 0 22px rgba(218,166,67,0.40); }
+
+/* Divider with a soft brand glow + center node */
+.hairline-divider { position: relative; box-shadow: 0 0 16px rgba(218,166,67,0.22); }
+.hairline-divider::after {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  width: 6px; height: 6px; border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--gold-grad); box-shadow: 0 0 14px rgba(218,166,67,0.6);
+}
+
+/* Refined sticky-nav glass */
+.site-header { box-shadow: 0 1px 0 rgba(218,166,67,0.05), 0 10px 30px -18px rgba(0,0,0,0.9); }
+
+/* Scroll-reveal entrance (added by flair.js; gracefully off without JS) */
+.flair-on .reveal {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(.2,.7,.3,1);
+  will-change: opacity, transform;
+}
+.flair-on .reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gold-text, .hero-wordmark::after { animation: none; }
+  .hero-wordmark::after { display: none; }
+  .flair-on .reveal { opacity: 1; transform: none; transition: none; }
+}
