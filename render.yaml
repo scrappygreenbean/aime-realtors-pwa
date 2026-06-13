@@ -1,0 +1,29 @@
+# =============================================================================
+#  render.yaml  —  Render Blueprint for The Realtor's AIME member hub
+# =============================================================================
+#  Pure static site (HTML/CSS/JS, PWA manifest + service worker, no build step,
+#  no secrets). Mirrors the hosting pattern already proven on her setup for the
+#  AIME Headshot Booth (Render web host) + headshots.gotaime.com via GHL.
+#
+#  DEPLOY (one time, in Charli's Render account):
+#    Render Dashboard -> New + -> Blueprint -> pick the
+#    scrappygreenbean/aime-realtors-pwa repo -> Apply.
+#  Render creates a FREE static site at https://aime-realtors-pwa.onrender.com
+#  (no cold starts on static sites). Then add the custom domain in Render:
+#    the site -> Settings -> Custom Domains -> add realtors.gotaime.com
+#  Render prints the exact CNAME target to enter in GHL's DNS for gotaime.com.
+# =============================================================================
+services:
+  - type: web
+    name: aime-realtors-pwa
+    runtime: static
+    # No build needed — the files in the repo root ARE the site.
+    buildCommand: "echo 'static site — nothing to build'"
+    staticPublishPath: .
+    autoDeploy: true
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+    # Make sure the service worker is always revalidated (so updates land fast).
+    routes: []
