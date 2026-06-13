@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>The Realtor's AIME — Community OS</title>
-  <meta name="description" content="The Realtor's AIME member hub — a designed home where every channel is its own page. AI that ACTUALLY works for you." />
+  <title>The Realtor's AIME — Member Hub</title>
+  <meta name="description" content="The Realtor's AIME member hub — every channel opens to its own real page. AI that actually works for you." />
 
   <!-- PWA -->
   <link rel="manifest" href="manifest.webmanifest" />
@@ -17,7 +17,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -33,7 +33,7 @@
         </span>
       </a>
       <nav class="header-nav">
-        <a href="#channels">Channels</a>
+        <a href="#channels">Rooms</a>
         <a href="ai-employees.html">AI Employees</a>
         <a href="#about">About</a>
         <button class="install-btn" id="installBtn" hidden type="button">Install app</button>
@@ -42,29 +42,30 @@
     </div>
   </header>
 
-  <!-- ============ HERO (real cinematic brand image) ============ -->
+  <!-- ============ HERO — full-bleed dramatic photo ============ -->
   <section class="hero">
+    <div class="hero-bg">
+      <img src="assets/img/hero-bg.jpg" alt="Dallas–Fort Worth skyline at golden hour" />
+    </div>
     <div class="wrap">
+      <div class="hero-pill"><span class="dot"></span> The Realtor's AIME · Member Hub</div>
       <img class="hero-logo" src="assets/img/logo-aime.png" alt="AIME — Artificial Intelligence + Me" />
-      <div class="eyebrow">The Realtor's AIME · Your Member Hub</div>
-      <h1>Your AI team,<span class="line2"><span class="gold-text">already on the clock.</span></span></h1>
+      <h1>AI that actually<br><em>works for you.</em></h1>
       <p class="lede">
-        No endless scroll. No ugly feed. Every channel opens to its own real page —
-        built, branded, and made to actually use.
+        Your members-only home base. No endless scroll, no ugly feed — every room opens
+        to its own real page, built to actually use.
       </p>
-      <figure class="hero-showcase">
-        <img src="assets/img/hero-realtor.jpg"
-             alt="The Realtor's AIME — where human insight meets AI intelligence, elevating real estate" />
-      </figure>
-      <p class="sub">AI that <strong>ACTUALLY</strong> works for you.</p>
+      <a class="btn-gold" href="ai-employees.html">Meet your AI Employees <span class="arrow">&rarr;</span></a>
+      <p class="sub">Where human insight meets <strong>AI intelligence.</strong></p>
     </div>
   </section>
 
-  <!-- ============ CHANNELS (image-driven rooms) ============ -->
+  <!-- ============ ROOMS (image-driven) ============ -->
   <section id="channels">
     <div class="wrap">
       <div class="section-head">
-        <h2>Pick a <span class="gold-text">channel</span></h2>
+        <div class="eyebrow">Your Rooms</div>
+        <h2>Pick a <span class="serif-accent">room.</span></h2>
         <p>Each one is its own page — designed, not dumped into a feed. Start with your AI team.</p>
       </div>
 
@@ -90,7 +91,7 @@
             <h3>AI Employees</h3>
             <p>Your hand-built AI team — listing copy, follow-ups, social, CMAs and more. Meet them, copy the prompt, get to work.</p>
             <div class="tile-foot">
-              <span class="tile-link">Open channel <span class="arrow">&rarr;</span></span>
+              <span class="tile-link">Open room <span class="arrow">&rarr;</span></span>
               <span class="tile-badge live">Live</span>
             </div>
           </div>
@@ -137,7 +138,7 @@
 
         <!-- Office Hours -->
         <a class="channel-tile" href="#">
-          <div class="tile-media"><img src="assets/img/wordmark-wide.png" alt="The Realtor's AIME" loading="lazy" /></div>
+          <div class="tile-media"><img src="assets/img/gold-streams.jpg" alt="" loading="lazy" /></div>
           <div class="tile-text">
             <h3>Office Hours</h3>
             <p>Live walk-throughs and Q&amp;A. Bring a real deal, leave with a real plan. Built by a realtor, for realtors.</p>
