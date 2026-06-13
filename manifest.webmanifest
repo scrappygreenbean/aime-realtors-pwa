@@ -1,0 +1,31 @@
+{
+  "name": "The Realtor's AIME — Community OS",
+  "short_name": "Realtor's AIME",
+  "description": "A designed community where every channel opens to its own page. Meet your realtor AI Employees and copy-paste prompts that actually work.",
+  "id": "/",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "categories": ["business", "productivity"],
+  "icons": [
+    { "src": "assets/img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/img/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "AI Employees",
+      "short_name": "AI Team",
+      "url": "ai-employees.html",
+      "description": "Meet your realtor AI Employees and copy their prompts."
+    },
+    {
+      "name": "AI Headshots",
+      "short_name": "Headshots",
+      "url": "https://headshots.gotaime.com"
+    }
+  ]
+}
