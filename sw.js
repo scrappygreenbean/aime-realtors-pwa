@@ -3,7 +3,7 @@
    App-shell precache + cache-first for local assets, network-first
    for navigations (so updates show up). Bump CACHE on every release.
    ===================================================================== */
-const CACHE = 'realtors-aime-v8';
+const CACHE = 'realtors-aime-v9';
 
 const APP_SHELL = [
   'index.html',
@@ -16,7 +16,7 @@ const APP_SHELL = [
   'assets/img/realtors-aime-logo.png',
   'assets/img/aime-wordmark.png',
   'assets/img/aime-icon.png',
-  'assets/img/hero-global.svg',
+  'assets/img/hero-global.jpg',
   'assets/img/hero-bg.jpg',
   'assets/img/gold-streams.jpg',
   'assets/img/hero-realtor.jpg',
