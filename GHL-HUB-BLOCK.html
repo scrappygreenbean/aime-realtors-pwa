@@ -1,11 +1,11 @@
 <!-- =====================================================================
      THE REALTOR'S AIME — MEMBER HUB  ·  GHL Custom-Code block
-     Paste this whole thing into a GHL "Custom HTML / Code" element on the
-     Realtors AIME Hub page. Self-contained: scoped CSS (.aime-hub) so it
-     won't clash with GHL's page styles, Google Fonts, and absolute public
-     image URLs (no upload needed — see notes at the bottom).
-     Style matched to live.realtoraime.com: Instrument Serif + Figtree,
-     champagne #F1E5AC + gold #DAA643 on black, full-bleed photo hero.
+     Paste this WHOLE block into a GHL "Custom Javascript / HTML" element.
+     Fully self-contained: scoped CSS (.aime-hub), Google Fonts, absolute
+     public image URLs (GitHub Pages — no upload needed), and a tiny inline
+     script for tap-to-flip on touch devices.
+     Style: Instrument Serif + Figtree, champagne #F1E5AC + gold #DAA643 on
+     black, full-bleed GLOBAL "human + AI" hero, flip cards.
      ===================================================================== -->
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -13,9 +13,10 @@
   <style>
     .aime-hub * { box-sizing: border-box; margin: 0; padding: 0; }
     .aime-hub {
-      --gold: #DAA643; --champagne: #F1E5AC; --grad: linear-gradient(135deg,#F1E5AC 0%,#DAA643 50%,#F1E5AC 100%);
+      --gold: #DAA643; --gold2: #FFD963; --champagne: #F1E5AC; --deep: #CA9438;
+      --grad: linear-gradient(135deg,#F1E5AC 0%,#DAA643 50%,#F1E5AC 100%);
       --line: rgba(212,175,55,0.22); --line2: rgba(212,175,55,0.42);
-      --text: #FAFAFA; --muted: #A1A1A1; --panel: #0F0F0F;
+      --text: #FAFAFA; --muted: #A1A1A1; --dim: #7A7A7A; --panel: #0F0F0F;
       font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--text); background: #000; line-height: 1.6; position: relative;
     }
@@ -24,15 +25,15 @@
     .aime-hub .wrap { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 24px; }
     .aime-hub h1, .aime-hub h2, .aime-hub h3 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; line-height: 1.04; }
 
-    /* HERO — full-bleed dramatic photo */
+    /* HERO — full-bleed global AI scene */
     .aime-hub .ah-hero { position: relative; min-height: 86vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 0 96px; overflow: hidden; }
-    .aime-hub .ah-hero-bg { position: absolute; inset: 0; z-index: 0; }
-    .aime-hub .ah-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
-    .aime-hub .ah-hero-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(1100px 560px at 50% 36%, rgba(218,166,67,0.10), transparent 70%), linear-gradient(180deg, rgba(0,0,0,0.74) 0%, rgba(0,0,0,0.50) 44%, rgba(0,0,0,0.94) 100%); }
+    .aime-hub .ah-hero-bg { position: absolute; inset: 0; z-index: 0; background: #000; }
+    .aime-hub .ah-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 46%; }
+    .aime-hub .ah-hero-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(1100px 560px at 50% 40%, rgba(218,166,67,0.10), transparent 70%), linear-gradient(180deg, rgba(0,0,0,0.66) 0%, rgba(0,0,0,0.42) 44%, rgba(0,0,0,0.94) 100%); }
     .aime-hub .ah-hero .wrap { position: relative; z-index: 1; }
     .aime-hub .ah-pill { display: inline-flex; align-items: center; gap: 9px; font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 600; color: var(--champagne); border: 1px solid var(--line2); background: rgba(0,0,0,0.34); padding: 8px 18px; border-radius: 100px; margin-bottom: 24px; }
     .aime-hub .ah-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--grad); }
-    .aime-hub .ah-logo { width: 188px; max-width: 58%; margin: 0 auto 20px; filter: drop-shadow(0 6px 26px rgba(0,0,0,0.6)); }
+    .aime-hub .ah-logo { width: 200px; max-width: 60%; margin: 0 auto 20px; filter: drop-shadow(0 6px 26px rgba(0,0,0,0.6)); }
     .aime-hub .ah-hero h1 { font-size: clamp(3rem, 8.2vw, 6.2rem); color: #fff; text-shadow: 0 4px 40px rgba(0,0,0,0.6); margin-bottom: 20px; }
     .aime-hub .ah-hero h1 em { font-style: italic; color: var(--champagne); }
     .aime-hub .ah-lede { max-width: 600px; margin: 0 auto 32px; color: #E9E9E9; font-size: 1.1rem; text-shadow: 0 2px 18px rgba(0,0,0,0.5); }
@@ -41,103 +42,160 @@
     .aime-hub .ah-sub { margin-top: 28px; color: var(--muted); font-size: 0.92rem; }
     .aime-hub .ah-sub strong { color: var(--champagne); font-weight: 700; }
 
-    /* ROOMS */
-    .aime-hub .ah-rooms { padding: 84px 0 70px; }
-    .aime-hub .ah-head { text-align: center; margin-bottom: 46px; }
-    .aime-hub .ah-eyebrow { font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 600; color: var(--champagne); margin-bottom: 14px; }
-    .aime-hub .ah-head h2 { font-size: clamp(2.2rem, 4.4vw, 3.2rem); }
-    .aime-hub .ah-head h2 em { font-style: italic; color: var(--champagne); }
-    .aime-hub .ah-head p { color: var(--muted); max-width: 560px; margin: 12px auto 0; }
+    /* CARD GRID (no section label, per brand) */
+    .aime-hub .ah-cards { padding: 72px 0 70px; }
     .aime-hub .ah-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-    .aime-hub .ah-card { display: flex; flex-direction: column; border-radius: 14px; overflow: hidden; background: var(--panel); border: 1px solid var(--line); transition: transform .34s cubic-bezier(.2,.7,.3,1), border-color .3s, box-shadow .34s; }
-    .aime-hub .ah-card:hover { transform: translateY(-7px); border-color: var(--line2); box-shadow: 0 22px 60px rgba(0,0,0,0.66), 0 0 34px rgba(218,166,67,0.18); }
-    .aime-hub .ah-card.live { position: relative; }
-    .aime-hub .ah-card.live::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--grad); z-index: 2; }
-    .aime-hub .ah-media { position: relative; aspect-ratio: 16/10; overflow: hidden; background: #0a0a0a; }
-    .aime-hub .ah-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s cubic-bezier(.2,.7,.3,1); }
-    .aime-hub .ah-card:hover .ah-media img { transform: scale(1.06); }
-    .aime-hub .ah-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%); }
-    .aime-hub .ah-body { display: flex; flex-direction: column; flex: 1; padding: 20px 24px 24px; }
-    .aime-hub .ah-body h3 { font-size: 1.7rem; color: #fff; margin-bottom: 8px; }
-    .aime-hub .ah-body p { font-size: 0.9rem; color: var(--muted); flex: 1; }
-    .aime-hub .ah-foot { margin-top: 18px; display: flex; align-items: center; justify-content: space-between; }
-    .aime-hub .ah-link { font-size: 0.82rem; font-weight: 700; color: var(--champagne); display: inline-flex; gap: 7px; }
-    .aime-hub .ah-card:hover .ah-link .ar { transform: translateX(4px); }
-    .aime-hub .ah-link .ar { transition: transform .25s; }
+
+    /* FLIP CARDS */
+    .aime-hub .ah-flip { perspective: 1500px; height: 340px; cursor: pointer; outline: none; }
+    .aime-hub .ah-flip:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 16px; }
+    .aime-hub .ah-flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .7s cubic-bezier(.2,.7,.3,1); }
+    .aime-hub .ah-flip:hover .ah-flip-inner,
+    .aime-hub .ah-flip.flipped .ah-flip-inner { transform: rotateY(180deg); }
+    .aime-hub .ah-front, .aime-hub .ah-back { position: absolute; inset: 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--panel); -webkit-backface-visibility: hidden; backface-visibility: hidden; box-shadow: 0 22px 60px rgba(0,0,0,0.66); }
+    .aime-hub .ah-flip:hover .ah-front, .aime-hub .ah-flip:hover .ah-back,
+    .aime-hub .ah-flip.flipped .ah-front, .aime-hub .ah-flip.flipped .ah-back { border-color: var(--line2); box-shadow: 0 22px 60px rgba(0,0,0,0.66), 0 0 36px rgba(218,166,67,0.22); }
+    /* front */
+    .aime-hub .ah-media { position: absolute; inset: 0; }
+    .aime-hub .ah-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.3,1); }
+    .aime-hub .ah-flip:hover .ah-media img { transform: scale(1.05); }
+    .aime-hub .ah-media::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,0) 38%, rgba(0,0,0,0.85) 100%); }
+    .aime-hub .ah-front-label { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 22px; }
+    .aime-hub .ah-front-label h3 { font-size: 1.7rem; color: #fff; }
+    .aime-hub .ah-flip.live .ah-front::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--grad); z-index: 2; }
+    /* back */
+    .aime-hub .ah-back { transform: rotateY(180deg); display: flex; flex-direction: column; justify-content: center; padding: 30px 28px; background: linear-gradient(160deg, rgba(218,166,67,0.10), rgba(218,166,67,0.02)), var(--panel); }
+    .aime-hub .ah-back::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--grad); }
+    .aime-hub .ah-back h3 { font-size: 1.6rem; color: #fff; margin-bottom: 12px; }
+    .aime-hub .ah-back p { font-size: 0.96rem; color: var(--muted); }
+    .aime-hub .ah-cta { margin-top: 20px; display: inline-flex; align-items: center; gap: 8px; font-size: 0.86rem; font-weight: 700; color: var(--champagne); }
+    .aime-hub .ah-flip:hover .ah-cta .ar { transform: translateX(4px); }
+    .aime-hub .ah-cta .ar { transition: transform .25s; }
+    .aime-hub .ah-cta.muted { color: var(--dim); font-weight: 600; }
     .aime-hub .ah-badge { font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; padding: 4px 10px; border-radius: 100px; }
     .aime-hub .ah-badge.on { background: var(--grad); color: #1b1408; }
     .aime-hub .ah-badge.soon { background: rgba(161,161,161,0.12); color: var(--muted); border: 1px solid var(--line); }
 
     /* FOOTER */
-    .aime-hub .ah-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 18px 0 40px; }
+    .aime-hub .ah-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 0 40px; }
     .aime-hub .ah-footer { text-align: center; padding: 0 0 64px; color: var(--muted); font-size: 0.88rem; }
     .aime-hub .ah-footer strong { color: var(--champagne); font-weight: 700; }
     .aime-hub .ah-footer a { color: var(--champagne); }
 
     @media (max-width: 940px) { .aime-hub .ah-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 600px) { .aime-hub .ah-grid { grid-template-columns: 1fr; } .aime-hub .ah-hero { min-height: 78vh; padding: 96px 0 64px; } .aime-hub .ah-hero h1 { font-size: clamp(2.6rem,12vw,4rem); } }
+    @media (max-width: 600px) {
+      .aime-hub .ah-grid { grid-template-columns: 1fr; }
+      .aime-hub .ah-flip { height: 300px; }
+      .aime-hub .ah-hero { min-height: 78vh; padding: 96px 0 64px; }
+      .aime-hub .ah-hero h1 { font-size: clamp(2.6rem,12vw,4rem); }
+      .aime-hub .ah-front-label h3 { font-size: 1.5rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { .aime-hub .ah-flip-inner { transition: none; } }
   </style>
 
   <!-- HERO -->
   <section class="ah-hero">
     <div class="ah-hero-bg">
-      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663494655499/HbMTHaw5khCc5QjNzucnR8/aime-hero-dfw-PdwKmMeSnc6rgzdM8TFN54.webp" alt="Dallas–Fort Worth skyline at golden hour">
+      <img src="https://scrappygreenbean.github.io/aime-realtors-pwa/assets/img/hero-global.svg" alt="A glowing Earth from space wrapped in golden AI light-streams — the global human + AI future">
     </div>
     <div class="wrap">
       <div class="ah-pill"><span class="dot"></span> The Realtor's AIME · Member Hub</div>
       <img class="ah-logo" src="https://scrappygreenbean.github.io/aime-realtors-pwa/assets/img/logo-aime.png" alt="AIME — Artificial Intelligence + Me">
       <h1>AI that actually<br><em>works for you.</em></h1>
-      <p class="ah-lede">Your members-only home base. No endless scroll, no ugly feed — every room opens to its own real page, built to actually use.</p>
+      <p class="ah-lede">Your members-only home base. No endless scroll, no ugly feed — every tool opens to its own real page, built to actually use.</p>
       <a class="ah-btn" href="https://scrappygreenbean.github.io/aime-realtors-pwa/ai-employees.html">Meet your AI Employees <span class="ar">&rarr;</span></a>
       <p class="ah-sub">Where human insight meets <strong>AI intelligence.</strong></p>
     </div>
   </section>
 
-  <!-- ROOMS -->
-  <section class="ah-rooms">
+  <!-- FLIP CARDS -->
+  <section class="ah-cards">
     <div class="wrap">
-      <div class="ah-head">
-        <div class="ah-eyebrow">Your Rooms</div>
-        <h2>Pick a <em>room.</em></h2>
-        <p>Each one is its own page — designed, not dumped into a feed. Start with your AI team.</p>
-      </div>
       <div class="ah-grid">
 
-        <a class="ah-card live" href="https://scrappygreenbean.github.io/aime-realtors-pwa/ai-employees.html">
-          <div class="ah-media"><img src="https://scrappygreenbean.github.io/aime-realtors-pwa/assets/img/title-card.jpg" alt="The Realtor's AIME by Charlotte Walsh"></div>
-          <div class="ah-body"><h3>Start Here</h3><p>New to AIME? Get your first win in 15 minutes — meet your AI team and copy your first prompt. No setup headache.</p>
-            <div class="ah-foot"><span class="ah-link">Begin here <span class="ar">&rarr;</span></span><span class="ah-badge on">Start</span></div></div>
-        </a>
+        <div class="ah-flip live" data-href="https://scrappygreenbean.github.io/aime-realtors-pwa/ai-employees.html" tabindex="0">
+          <div class="ah-flip-inner">
+            <div class="ah-front">
+              <div class="ah-media"><img src="https://scrappygreenbean.github.io/aime-realtors-pwa/assets/img/title-card.jpg" alt="The Realtor's AIME by Charlotte Walsh"></div>
+              <div class="ah-front-label"><h3>Start Here</h3><span class="ah-badge on">Start</span></div>
+            </div>
+            <div class="ah-back">
+              <h3>Start Here</h3>
+              <p>New to AIME? Get your first win in 15 minutes — meet your AI team and copy your first prompt. No setup headache.</p>
+              <a class="ah-cta" href="https://scrappygreenbean.github.io/aime-realtors-pwa/ai-employees.html">Begin here <span class="ar">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
 
-        <a class="ah-card live" href="https://scrappygreenbean.github.io/aime-realtors-pwa/ai-employees.html">
-          <div class="ah-media"><img src="https://scrappygreenbean.github.io/aime-realtors-pwa/assets/img/team.jpg" alt="Your AIME real-estate AI team"></div>
-          <div class="ah-body"><h3>AI Employees</h3><p>Your hand-built AI team — listing copy, follow-ups, social, CMAs and more. Meet them, copy the prompt, get to work.</p>
-            <div class="ah-foot"><span class="ah-link">Open room <span class="ar">&rarr;</span></span><span class="ah-badge on">Live</span></div></div>
-        </a>
+        <div class="ah-flip live" data-href="https://scrappygreenbean.github.io/aime-realtors-pwa/ai-employees.html" tabindex="0">
+          <div class="ah-flip-inner">
+            <div class="ah-front">
+              <div class="ah-media"><img src="https://scrappygreenbean.github.io/aime-realtors-pwa/assets/img/team.jpg" alt="Your AIME real-estate AI team"></div>
+              <div class="ah-front-label"><h3>AI Employees</h3><span class="ah-badge on">Live</span></div>
+            </div>
+            <div class="ah-back">
+              <h3>AI Employees</h3>
+              <p>Your hand-built AI team — listing copy, follow-ups, social, CMAs and more. Meet them, copy the prompt, get to work.</p>
+              <a class="ah-cta" href="https://scrappygreenbean.github.io/aime-realtors-pwa/ai-employees.html">Open <span class="ar">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
 
-        <a class="ah-card live" href="https://headshots.gotaime.com" target="_blank" rel="noopener">
-          <div class="ah-media"><img src="https://scrappygreenbean.github.io/aime-realtors-pwa/assets/img/headshot.jpg" alt="Your AI headshot, created with The Realtor's AIME"></div>
-          <div class="ah-body"><h3>AI Headshots</h3><p>Studio-quality professional headshots in minutes — no photographer, no awkward studio. Upload, pick your look, done.</p>
-            <div class="ah-foot"><span class="ah-link">Open booth <span class="ar">&rarr;</span></span><span class="ah-badge on">Live</span></div></div>
-        </a>
+        <div class="ah-flip live" data-href="https://headshots.gotaime.com" data-target="_blank" tabindex="0">
+          <div class="ah-flip-inner">
+            <div class="ah-front">
+              <div class="ah-media"><img src="https://scrappygreenbean.github.io/aime-realtors-pwa/assets/img/headshot.jpg" alt="Your AI headshot, created with The Realtor's AIME"></div>
+              <div class="ah-front-label"><h3>AI Headshots</h3><span class="ah-badge on">Live</span></div>
+            </div>
+            <div class="ah-back">
+              <h3>AI Headshots</h3>
+              <p>Studio-quality professional headshots in minutes — no photographer, no awkward studio. Upload, pick your look, done.</p>
+              <a class="ah-cta" href="https://headshots.gotaime.com" target="_blank" rel="noopener">Open booth <span class="ar">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
 
-        <a class="ah-card" href="#">
-          <div class="ah-media"><img src="https://scrappygreenbean.github.io/aime-realtors-pwa/assets/img/feature-portrait.jpg" alt="AIME real-estate framework"></div>
-          <div class="ah-body"><h3>Resources</h3><p>Templates, scripts, checklists, and the playbooks behind every AI Employee — all in one tidy library.</p>
-            <div class="ah-foot"><span class="ah-link">Coming soon</span><span class="ah-badge soon">Soon</span></div></div>
-        </a>
+        <div class="ah-flip" data-href="#" tabindex="0">
+          <div class="ah-flip-inner">
+            <div class="ah-front">
+              <div class="ah-media"><img src="https://scrappygreenbean.github.io/aime-realtors-pwa/assets/img/feature-portrait.jpg" alt="AIME real-estate framework"></div>
+              <div class="ah-front-label"><h3>Resources</h3><span class="ah-badge soon">Soon</span></div>
+            </div>
+            <div class="ah-back">
+              <h3>Resources</h3>
+              <p>Templates, scripts, checklists, and the playbooks behind every AI Employee — all in one tidy library.</p>
+              <span class="ah-cta muted">Coming soon</span>
+            </div>
+          </div>
+        </div>
 
-        <a class="ah-card" href="#">
-          <div class="ah-media"><img src="https://scrappygreenbean.github.io/aime-realtors-pwa/assets/img/wins-results.jpg" alt="Smarter insights, stronger results"></div>
-          <div class="ah-body"><h3>Wins</h3><p>Real results from real agents. Closed deals, saved hours, listings that flew — share yours, steal theirs.</p>
-            <div class="ah-foot"><span class="ah-link">Coming soon</span><span class="ah-badge soon">Soon</span></div></div>
-        </a>
+        <div class="ah-flip" data-href="#" tabindex="0">
+          <div class="ah-flip-inner">
+            <div class="ah-front">
+              <div class="ah-media"><img src="https://scrappygreenbean.github.io/aime-realtors-pwa/assets/img/wins-results.jpg" alt="Smarter insights, stronger results"></div>
+              <div class="ah-front-label"><h3>Wins</h3><span class="ah-badge soon">Soon</span></div>
+            </div>
+            <div class="ah-back">
+              <h3>Wins</h3>
+              <p>Real results from real agents. Closed deals, saved hours, listings that flew — share yours, steal theirs.</p>
+              <span class="ah-cta muted">Coming soon</span>
+            </div>
+          </div>
+        </div>
 
-        <a class="ah-card" href="#">
-          <div class="ah-media"><img src="https://scrappygreenbean.github.io/aime-realtors-pwa/assets/img/gold-streams.jpg" alt=""></div>
-          <div class="ah-body"><h3>Office Hours</h3><p>Live walk-throughs and Q&amp;A. Bring a real deal, leave with a real plan. Built by a realtor, for realtors.</p>
-            <div class="ah-foot"><span class="ah-link">Coming soon</span><span class="ah-badge soon">Soon</span></div></div>
-        </a>
+        <div class="ah-flip" data-href="#" tabindex="0">
+          <div class="ah-flip-inner">
+            <div class="ah-front">
+              <div class="ah-media"><img src="https://scrappygreenbean.github.io/aime-realtors-pwa/assets/img/gold-streams.jpg" alt="Office hours with The Realtor's AIME"></div>
+              <div class="ah-front-label"><h3>Office Hours</h3><span class="ah-badge soon">Soon</span></div>
+            </div>
+            <div class="ah-back">
+              <h3>Office Hours</h3>
+              <p>Live walk-throughs and Q&amp;A. Bring a real deal, leave with a real plan. Built by a realtor, for realtors.</p>
+              <span class="ah-cta muted">Coming soon</span>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -147,5 +205,26 @@
   <footer class="ah-footer">
     <strong>The Realtor's AIME</strong> — Where Human Insight Meets AI Intelligence. &nbsp;·&nbsp; <a href="mailto:hello@gotaime.com">hello@gotaime.com</a>
   </footer>
+
+  <script>
+    (function () {
+      var root = document.querySelector('.aime-hub') || document;
+      var noHover = !(window.matchMedia && window.matchMedia('(hover: hover)').matches);
+      root.querySelectorAll('.ah-flip').forEach(function (card) {
+        card.addEventListener('click', function (e) {
+          if (e.target.closest('a')) return;              // real links navigate themselves
+          if (noHover) { card.classList.toggle('flipped'); return; }  // touch: tap flips
+          var href = card.getAttribute('data-href');      // desktop: click navigates
+          if (href && href !== '#') {
+            if (card.getAttribute('data-target') === '_blank') { window.open(href, '_blank', 'noopener'); }
+            else { window.location.href = href; }
+          }
+        });
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); noHover ? card.classList.toggle('flipped') : card.click(); }
+        });
+      });
+    })();
+  </script>
 </div>
 <!-- ===================================================================== -->

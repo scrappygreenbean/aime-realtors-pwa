@@ -804,13 +804,13 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.12; }
    IMAGE-DRIVEN — real brand photography (replaces all icons/emoji)
    ===================================================================== */
 
-/* Header brand mark = real AIME wordmark image */
+/* Header brand mark = real gold-on-black AIME logo (full wordmark, not cropped) */
 .brand-logo {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  box-shadow: var(--glow-shadow);
+  height: 46px;
+  width: auto;
   flex-shrink: 0;
-  object-fit: cover;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 16px rgba(218,166,67,0.30));
 }
 
 /* Hero: real AIME logo + cinematic brand showcase image */
@@ -923,7 +923,7 @@ h1, h2, h3 { font-weight: 400; letter-spacing: 0; }
   isolation: isolate;
 }
 .hero-bg { position: absolute; inset: 0; z-index: -2; }
-.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 46%; }
 .hero-bg::after {
   content: ''; position: absolute; inset: 0; z-index: -1;
   background:
@@ -986,7 +986,7 @@ h1, h2, h3 { font-weight: 400; letter-spacing: 0; }
 .section-head h2 { font-size: clamp(2.2rem, 4.4vw, 3.2rem); }
 .section-head .eyebrow { color: var(--champagne); margin-bottom: 14px; }
 
-/* Refined room cards (gold hairline, serif champagne titles) */
+/* Refined cards (gold hairline, serif champagne titles) */
 .channel-tile { border-radius: 14px; background: var(--panel); border: 1px solid var(--hairline); }
 .channel-tile:hover { border-color: var(--hairline-2); }
 .tile-text h3 { color: #fff; font-size: 1.7rem; }
@@ -1002,4 +1002,102 @@ h1, h2, h3 { font-weight: 400; letter-spacing: 0; }
 @media (max-width: 620px) {
   .hero { min-height: 78vh; padding: 104px 0 72px; }
   .hero h1 { font-size: clamp(2.6rem, 12vw, 4rem); }
+}
+
+/* =====================================================================
+   FLIP CARDS — front = image + title, back = description + CTA.
+   3D flip on hover (desktop) and tap (touch, via .flipped class in JS).
+   ===================================================================== */
+#channels { padding-top: 18px; }
+
+.flip-card {
+  perspective: 1500px;
+  height: 340px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+.flip-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 16px; }
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(.2,.7,.3,1);
+}
+.flip-card:hover .flip-inner,
+.flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  background: var(--panel);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  box-shadow: var(--card-shadow);
+}
+.flip-card:hover .flip-front,
+.flip-card:hover .flip-back,
+.flip-card.flipped .flip-front,
+.flip-card.flipped .flip-back {
+  border-color: var(--hairline-2);
+  box-shadow: var(--card-shadow), 0 0 36px rgba(218,166,67,0.22);
+}
+
+/* FRONT — full-bleed image with title overlaid at the bottom */
+.flip-front .tile-media { position: absolute; inset: 0; aspect-ratio: auto; }
+.flip-front .tile-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.6s cubic-bezier(.2,.7,.3,1); }
+.flip-card:hover .flip-front .tile-media img { transform: scale(1.05); }
+.flip-front .tile-media::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 38%, rgba(0,0,0,0.85) 100%);
+}
+.flip-front-label {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 20px 22px;
+}
+.flip-front-label h3 { font-family: var(--serif); font-weight: 400; font-size: 1.7rem; color: #fff; margin: 0; }
+.flip-card.is-live .flip-front::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--gold-grad); z-index: 2;
+}
+
+/* BACK — gold-tinted panel with the description + CTA */
+.flip-back {
+  transform: rotateY(180deg);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 30px 28px;
+  background:
+    linear-gradient(160deg, rgba(218,166,67,0.10), rgba(218,166,67,0.02)),
+    var(--panel);
+}
+.flip-back::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--gold-grad);
+}
+.flip-back h3 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; color: #fff; margin-bottom: 12px; }
+.flip-back p { font-size: 0.96rem; color: var(--text-muted); line-height: 1.55; }
+.flip-cta {
+  margin-top: 20px;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.86rem; font-weight: 700; letter-spacing: 0.02em;
+  color: var(--champagne);
+}
+.flip-cta .arrow { transition: transform 0.25s; }
+.flip-card:hover .flip-cta .arrow { transform: translateX(4px); }
+.flip-cta.muted { color: var(--text-dim); font-weight: 600; }
+
+@media (max-width: 620px) {
+  .flip-card { height: 300px; }
+  .flip-front-label h3 { font-size: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner { transition: none; }
 }

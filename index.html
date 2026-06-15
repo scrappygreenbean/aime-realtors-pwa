@@ -26,14 +26,14 @@
   <header class="site-header">
     <div class="wrap">
       <a class="brand-lockup" href="index.html">
-        <img class="brand-logo" src="assets/img/aime-wordmark.png" alt="AIME" width="40" height="40" />
+        <img class="brand-logo" src="assets/img/logo-aime.png" alt="AIME — Artificial Intelligence + Me" />
         <span class="brand-names">
           <span class="b1">The Realtor's AIME</span>
           <span class="b2">Member Hub</span>
         </span>
       </a>
       <nav class="header-nav">
-        <a href="#channels">Rooms</a>
+        <a href="#channels">Explore</a>
         <a href="ai-employees.html">AI Employees</a>
         <a href="#about">About</a>
         <button class="install-btn" id="installBtn" hidden type="button">Install app</button>
@@ -42,17 +42,17 @@
     </div>
   </header>
 
-  <!-- ============ HERO — full-bleed dramatic photo ============ -->
+  <!-- ============ HERO — full-bleed global AI scene ============ -->
   <section class="hero">
     <div class="hero-bg">
-      <img src="assets/img/hero-bg.jpg" alt="Dallas–Fort Worth skyline at golden hour" />
+      <img src="assets/img/hero-global.svg" alt="A glowing Earth from space wrapped in golden AI light-streams — the global human + AI future" />
     </div>
     <div class="wrap">
       <div class="hero-pill"><span class="dot"></span> The Realtor's AIME · Member Hub</div>
       <img class="hero-logo" src="assets/img/logo-aime.png" alt="AIME — Artificial Intelligence + Me" />
       <h1>AI that actually<br><em>works for you.</em></h1>
       <p class="lede">
-        Your members-only home base. No endless scroll, no ugly feed — every room opens
+        Your members-only home base. No endless scroll, no ugly feed — every tool opens
         to its own real page, built to actually use.
       </p>
       <a class="btn-gold" href="ai-employees.html">Meet your AI Employees <span class="arrow">&rarr;</span></a>
@@ -60,94 +60,100 @@
     </div>
   </section>
 
-  <!-- ============ ROOMS (image-driven) ============ -->
+  <!-- ============ CHANNELS — flip cards (no section label, per brand) ============ -->
   <section id="channels">
     <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Your Rooms</div>
-        <h2>Pick a <span class="serif-accent">room.</span></h2>
-        <p>Each one is its own page — designed, not dumped into a feed. Start with your AI team.</p>
-      </div>
-
       <div class="channel-grid">
 
         <!-- LEADING: Start Here -->
-        <a class="channel-tile is-live" href="ai-employees.html">
-          <div class="tile-media"><img src="assets/img/title-card.jpg" alt="The Realtor's AIME by Charlotte Walsh" loading="lazy" /></div>
-          <div class="tile-text">
-            <h3>Start Here</h3>
-            <p>New to AIME? Get your first win in 15 minutes — meet your AI team and copy your first prompt. No setup headache.</p>
-            <div class="tile-foot">
-              <span class="tile-link">Begin here <span class="arrow">&rarr;</span></span>
-              <span class="tile-badge live">Start</span>
+        <div class="flip-card is-live" data-href="ai-employees.html" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="tile-media"><img src="assets/img/title-card.jpg" alt="The Realtor's AIME by Charlotte Walsh" loading="lazy" /></div>
+              <div class="flip-front-label"><h3>Start Here</h3><span class="tile-badge live">Start</span></div>
+            </div>
+            <div class="flip-back">
+              <h3>Start Here</h3>
+              <p>New to AIME? Get your first win in 15 minutes — meet your AI team and copy your first prompt. No setup headache.</p>
+              <a class="flip-cta" href="ai-employees.html">Begin here <span class="arrow">&rarr;</span></a>
             </div>
           </div>
-        </a>
+        </div>
 
         <!-- AI Employees -->
-        <a class="channel-tile is-live" href="ai-employees.html">
-          <div class="tile-media"><img src="assets/img/team.jpg" alt="Your AIME real-estate AI team" loading="lazy" /></div>
-          <div class="tile-text">
-            <h3>AI Employees</h3>
-            <p>Your hand-built AI team — listing copy, follow-ups, social, CMAs and more. Meet them, copy the prompt, get to work.</p>
-            <div class="tile-foot">
-              <span class="tile-link">Open room <span class="arrow">&rarr;</span></span>
-              <span class="tile-badge live">Live</span>
+        <div class="flip-card is-live" data-href="ai-employees.html" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="tile-media"><img src="assets/img/team.jpg" alt="Your AIME real-estate AI team" loading="lazy" /></div>
+              <div class="flip-front-label"><h3>AI Employees</h3><span class="tile-badge live">Live</span></div>
+            </div>
+            <div class="flip-back">
+              <h3>AI Employees</h3>
+              <p>Your hand-built AI team — listing copy, follow-ups, social, CMAs and more. Meet them, copy the prompt, get to work.</p>
+              <a class="flip-cta" href="ai-employees.html">Open <span class="arrow">&rarr;</span></a>
             </div>
           </div>
-        </a>
+        </div>
 
         <!-- AI Headshots (external booth) -->
-        <a class="channel-tile is-live" href="https://headshots.gotaime.com" target="_blank" rel="noopener">
-          <div class="tile-media"><img src="assets/img/headshot.jpg" alt="Your AI headshot, created with The Realtor's AIME" loading="lazy" /></div>
-          <div class="tile-text">
-            <h3>AI Headshots</h3>
-            <p>Studio-quality professional headshots in minutes — no photographer, no awkward studio. Upload, pick your look, done.</p>
-            <div class="tile-foot">
-              <span class="tile-link">Open booth <span class="arrow">&rarr;</span></span>
-              <span class="tile-badge live">Live</span>
+        <div class="flip-card is-live" data-href="https://headshots.gotaime.com" data-target="_blank" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="tile-media"><img src="assets/img/headshot.jpg" alt="Your AI headshot, created with The Realtor's AIME" loading="lazy" /></div>
+              <div class="flip-front-label"><h3>AI Headshots</h3><span class="tile-badge live">Live</span></div>
+            </div>
+            <div class="flip-back">
+              <h3>AI Headshots</h3>
+              <p>Studio-quality professional headshots in minutes — no photographer, no awkward studio. Upload, pick your look, done.</p>
+              <a class="flip-cta" href="https://headshots.gotaime.com" target="_blank" rel="noopener">Open booth <span class="arrow">&rarr;</span></a>
             </div>
           </div>
-        </a>
+        </div>
 
         <!-- Resources -->
-        <a class="channel-tile" href="#">
-          <div class="tile-media"><img src="assets/img/feature-portrait.jpg" alt="AIME real-estate framework" loading="lazy" /></div>
-          <div class="tile-text">
-            <h3>Resources</h3>
-            <p>Templates, scripts, checklists, and the playbooks behind every AI Employee — all in one tidy library.</p>
-            <div class="tile-foot">
-              <span class="tile-link">Coming soon</span>
-              <span class="tile-badge soon">Soon</span>
+        <div class="flip-card" data-href="#" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="tile-media"><img src="assets/img/feature-portrait.jpg" alt="AIME real-estate framework" loading="lazy" /></div>
+              <div class="flip-front-label"><h3>Resources</h3><span class="tile-badge soon">Soon</span></div>
+            </div>
+            <div class="flip-back">
+              <h3>Resources</h3>
+              <p>Templates, scripts, checklists, and the playbooks behind every AI Employee — all in one tidy library.</p>
+              <span class="flip-cta muted">Coming soon</span>
             </div>
           </div>
-        </a>
+        </div>
 
         <!-- Wins -->
-        <a class="channel-tile" href="#">
-          <div class="tile-media"><img src="assets/img/wins-results.jpg" alt="Smarter insights, stronger results" loading="lazy" /></div>
-          <div class="tile-text">
-            <h3>Wins</h3>
-            <p>Real results from real agents. Closed deals, saved hours, listings that flew — share yours, steal theirs.</p>
-            <div class="tile-foot">
-              <span class="tile-link">Coming soon</span>
-              <span class="tile-badge soon">Soon</span>
+        <div class="flip-card" data-href="#" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="tile-media"><img src="assets/img/wins-results.jpg" alt="Smarter insights, stronger results" loading="lazy" /></div>
+              <div class="flip-front-label"><h3>Wins</h3><span class="tile-badge soon">Soon</span></div>
+            </div>
+            <div class="flip-back">
+              <h3>Wins</h3>
+              <p>Real results from real agents. Closed deals, saved hours, listings that flew — share yours, steal theirs.</p>
+              <span class="flip-cta muted">Coming soon</span>
             </div>
           </div>
-        </a>
+        </div>
 
         <!-- Office Hours -->
-        <a class="channel-tile" href="#">
-          <div class="tile-media"><img src="assets/img/gold-streams.jpg" alt="" loading="lazy" /></div>
-          <div class="tile-text">
-            <h3>Office Hours</h3>
-            <p>Live walk-throughs and Q&amp;A. Bring a real deal, leave with a real plan. Built by a realtor, for realtors.</p>
-            <div class="tile-foot">
-              <span class="tile-link">Coming soon</span>
-              <span class="tile-badge soon">Soon</span>
+        <div class="flip-card" data-href="#" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="tile-media"><img src="assets/img/gold-streams.jpg" alt="Office hours with The Realtor's AIME" loading="lazy" /></div>
+              <div class="flip-front-label"><h3>Office Hours</h3><span class="tile-badge soon">Soon</span></div>
+            </div>
+            <div class="flip-back">
+              <h3>Office Hours</h3>
+              <p>Live walk-throughs and Q&amp;A. Bring a real deal, leave with a real plan. Built by a realtor, for realtors.</p>
+              <span class="flip-cta muted">Coming soon</span>
             </div>
           </div>
-        </a>
+        </div>
 
       </div>
     </div>
