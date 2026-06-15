@@ -804,13 +804,12 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.12; }
    IMAGE-DRIVEN — real brand photography (replaces all icons/emoji)
    ===================================================================== */
 
-/* Header brand mark = real gold-on-black AIME logo (full wordmark, not cropped) */
+/* Header brand mark = real gold-on-black AIME wordmark (blends on black) */
 .brand-logo {
-  height: 46px;
+  height: 48px;
   width: auto;
   flex-shrink: 0;
   object-fit: contain;
-  filter: drop-shadow(0 4px 16px rgba(218,166,67,0.30));
 }
 
 /* Hero: real AIME logo + cinematic brand showcase image */
@@ -899,7 +898,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.12; }
 }
 
 @media (max-width: 620px) {
-  .hero-logo { width: 180px; }
+  .hero-logo { width: 230px; }
   .tile-media { aspect-ratio: 16 / 9; }
 }
 
@@ -946,8 +945,12 @@ h1, h2, h3 { font-weight: 400; letter-spacing: 0; }
 .hero-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-grad); box-shadow: 0 0 10px rgba(241,229,172,0.8); }
 
 .hero-logo {
-  width: 188px; max-width: 58%; margin: 0 auto 22px;
-  filter: drop-shadow(0 6px 26px rgba(0,0,0,0.6));
+  width: 320px; max-width: 82%; margin: 0 auto 18px;
+  border-radius: 20px;
+  box-shadow:
+    0 22px 64px rgba(0,0,0,0.62),
+    0 0 0 1px rgba(218,166,67,0.40),
+    0 0 56px rgba(218,166,67,0.22);
 }
 .hero h1 {
   font-family: var(--serif); font-weight: 400;
