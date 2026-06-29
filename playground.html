@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://links.gotaime.com/js/external-tracking.js" data-tracking-id="tk_509ab4ac86254f45aa2d88082ce583ae"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Playground &middot; The Realtor's AIME</title>
+  <meta name="description" content="The AIME Playground — free, cutting-edge AI tools worth trying, hand-picked for real estate agents." />
+
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Realtor's AIME" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" href="assets/img/favicon-48.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .pg-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px; margin-top: 8px;
+    }
+    .pg-flip { background: transparent; perspective: 1200px; height: 230px; cursor: pointer; }
+    .pg-flip-inner {
+      position: relative; width: 100%; height: 100%; transition: transform .55s;
+      transform-style: preserve-3d;
+    }
+    .pg-flip:hover .pg-flip-inner, .pg-flip:focus-within .pg-flip-inner { transform: rotateY(180deg); }
+    .pg-face {
+      position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+      border: 1px solid var(--hairline, rgba(212,175,55,.22)); border-radius: 18px;
+      padding: 26px; display: flex; flex-direction: column; justify-content: center;
+      background: var(--panel, #0F0F0F);
+    }
+    .pg-front .ic { font-size: 32px; margin-bottom: 14px; }
+    .pg-front h3 { color: #FAFAFA; font-size: 21px; margin: 0 0 6px; font-family: var(--serif, 'Instrument Serif', serif); }
+    .pg-front .tag { color: var(--gold, #DAA643); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; }
+    .pg-back { transform: rotateY(180deg); background: var(--panel-2, #161616); border-color: var(--gold, #DAA643); }
+    .pg-back p { color: var(--text-muted, #A1A1A1); font-size: 13.5px; line-height: 1.55; margin: 0 0 16px; }
+    .pg-back .open {
+      display: inline-block; background: var(--gold-grad, linear-gradient(135deg,#F1E5AC,#DAA643,#F1E5AC));
+      color: #100c02; font-weight: 700; font-size: 13px; padding: 11px 22px; border-radius: 99px; text-decoration: none;
+      align-self: flex-start;
+    }
+    .pg-note {
+      margin-top: 28px; font-size: 13px; color: var(--text-muted, #A1A1A1);
+      border-left: 3px solid var(--gold, #DAA643); padding: 10px 16px; background: rgba(218,166,67,.05); border-radius: 4px 12px 12px 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand-lockup" href="index.html">
+        <img class="brand-logo" src="assets/img/aime-wordmark.png" alt="AIME — Artificial Intelligence + Me" />
+        <span class="brand-names">
+          <span class="b1">The Realtor's AIME</span>
+          <span class="b2">Member Hub</span>
+        </span>
+      </a>
+      <nav class="header-nav">
+        <a href="index.html">Home</a>
+        <a href="tools.html">Tools</a>
+        <a href="playground.html">Playground</a>
+        <a href="community.html">Community</a>
+        <button class="install-btn" id="installBtn" hidden type="button">Install app</button>
+        <a class="header-cta" href="index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> <span>&rsaquo;</span> <span>Playground</span>
+      </div>
+      <div class="eyebrow" style="margin-bottom:18px;">Go play</div>
+      <h1>The <span class="gold-text">Playground</span></h1>
+      <p>
+        Free, cutting-edge AI tools worth trying — hand-picked and explained for agents.
+        Hover a tile for the rundown, then jump in. No logins to AIME, just go explore.
+      </p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <div class="pg-grid">
+
+      <!-- Flow Music -->
+      <div class="pg-flip" tabindex="0">
+        <div class="pg-flip-inner">
+          <div class="pg-face pg-front">
+            <span class="ic">&#127925;</span>
+            <h3>Flow Music</h3>
+            <span class="tag">Free &middot; AI Music</span>
+          </div>
+          <div class="pg-face pg-back">
+            <p>Generate custom, royalty-safe background music for your reels, walkthrough videos, and social clips — no licensing headaches.</p>
+            <a class="open" href="https://www.flowmusic.app/personalize" target="_blank" rel="noopener">Open Flow Music &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Pomelli -->
+      <div class="pg-flip" tabindex="0">
+        <div class="pg-flip-inner">
+          <div class="pg-face pg-front">
+            <span class="ic">&#127912;</span>
+            <h3>Pomelli</h3>
+            <span class="tag">Google Labs &middot; Free Beta</span>
+          </div>
+          <div class="pg-face pg-back">
+            <p>Google's AI brand-and-marketing tool — spins your brand into on-brand social posts and campaign assets in seconds.</p>
+            <a class="open" href="https://labs.google.com/pomelli/about/" target="_blank" rel="noopener">Open Pomelli &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Opal -->
+      <div class="pg-flip" tabindex="0">
+        <div class="pg-flip-inner">
+          <div class="pg-face pg-front">
+            <span class="ic">&#129520;</span>
+            <h3>Opal</h3>
+            <span class="tag">Google Labs &middot; Free Beta</span>
+          </div>
+          <div class="pg-face pg-back">
+            <p>Build your own little AI mini-apps with no code — describe what you want and Opal wires it up. Great for custom agent workflows.</p>
+            <a class="open" href="https://opal.google/edit/11AW456rFHTPw198bzbeysTRlkIgMas9U" target="_blank" rel="noopener">Open Opal &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Mixboard -->
+      <div class="pg-flip" tabindex="0">
+        <div class="pg-flip-inner">
+          <div class="pg-face pg-front">
+            <span class="ic">&#128444;&#65039;</span>
+            <h3>Mixboard</h3>
+            <span class="tag">Google Labs &middot; Free Beta</span>
+          </div>
+          <div class="pg-face pg-back">
+            <p>An AI moodboard / concept canvas — perfect for staging ideas, listing aesthetics, and visual brainstorming with clients.</p>
+            <a cla
